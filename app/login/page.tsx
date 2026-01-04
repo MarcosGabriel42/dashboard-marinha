@@ -9,7 +9,7 @@ export default function LoginPage() {
   function handleLogin(e: React.FormEvent) {
     e.preventDefault();
     localStorage.setItem("logado", "true");
-    router.push("/dashboard");
+    router.push("/");
   }
 
   return (

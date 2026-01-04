@@ -4,7 +4,7 @@ import { useEffect } from "react";
 import { useRouter } from "next/navigation";
 import DashboardLayout from "./components/layout/DashboardLayout";
 import Card from "./components/ui/Card";
-
+import WelcomeMessage from "./components/dashboard/WelcomeMessage";
 
 export default function DashboardPage() {
   const router = useRouter();
@@ -14,15 +14,15 @@ export default function DashboardPage() {
     if (!logado) {
       router.push("/login");
     }
-  }, []);
+  }, [router]);
 
   return (
     <DashboardLayout>
-      <h1 className="text-2xl font-bold text-[var(--color-primary)]">
-        Dashboard Marinha ⚓
-      </h1>
+      {/* Mensagem dinâmica de boas-vindas */}
+      <WelcomeMessage />
 
-      <div className="grid grid-cols-3 gap-6 mt-6">
+      {/* Cards do dashboard */}
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mt-6">
         <Card title="Embarcações" value="12" />
         <Card title="Missões" value="4" />
         <Card title="Alertas" value="2" />
